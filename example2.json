@@ -1,0 +1,13 @@
+{
+    "states": ["q0", "q_accept", "q_reject"],
+    "transitions": {
+        "q0": {
+            "A":["q0", "B", "R"],
+            "B":["q_reject", "B", "R"],
+            "_":["q_accept", "_", "N"]
+        }
+    },
+    "initial_state": "q0",
+    "accept_states": ["q_accept"],
+    "reject_states": ["q_reject"]
+}
