@@ -30,9 +30,9 @@ Blank symbol: Blank symbol (_)
 class TuringMachine: # We define the T.M as an object.
     def __init__(self, config):
         self.states = config["states"]
-        self.alphabet = ["A", "B", "_"]
         self.blank_symbol = "_"
-        self.input_symbols = ["A", "B"]
+        self.input_symbols = config["input_symbols"]
+        self.alphabet = self.input_symbols.append(self.blank_symbol)
         self.transitions = config["transitions"]
         self.initial_state = config["initial_state"]
         self.accept_states = config["accept_states"]
@@ -73,7 +73,7 @@ class TuringMachine: # We define the T.M as an object.
             return True
         # If the symbol has not a transition in that state
         else:
-            raise Exception(f'The state {self.current_state} doesn\'t contain the symbol: {current_symbol}')
+            print(f'The state {self.current_state} doesn\'t contain the symbol: {current_symbol}')
             return False
 
     # Method to run the T.M with a input string.
@@ -113,5 +113,5 @@ while True:
             input_string = input("Enter the input string: ")
             if not input_string: break # If there is no input string, we break de loop.
             tm.run(input_string) # We run our TM.
-    except:
-        raise Exception("The file doesn't exist. Please try again.") # We raise an exception if it doesn't exist.
+    except Exception as ex:
+        print(f"There is an exception: {ex}") # We print the exception.

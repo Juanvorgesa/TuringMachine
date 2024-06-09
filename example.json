@@ -1,4 +1,5 @@
 {
+    "input_symbols": ["A", "B"],
     "states": ["q0", "q1", "q_accept", "q_reject"],
     "transitions": {
         "q0": {
